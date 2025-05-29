@@ -11,14 +11,14 @@ const Header = () => {
             <h1>
     <a href="/" className="logo">
         <img
-            src="/pmob-portfolio/logo2.svg"
+            src="/logo2.svg"
             width={40}
             height={40}
             alt="Patt Baldelomar"
             className="block dark:hidden"
         />
         <img
-            src="/pmob-portfolio/logo.svg"
+            src="/logo.svg"
             width={40}
             height={40}
             alt="Patt Baldelomar"
