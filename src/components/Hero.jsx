@@ -117,7 +117,7 @@ const Hero = () => {
         <div className="flex gap-4 pt-4">
           <Button
             primary
-            href="/pmob-portfolio/BALDELOMAR_CV.pdf"
+            href="/BALDELOMAR_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
