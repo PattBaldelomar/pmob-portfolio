@@ -98,7 +98,7 @@ const skillItem = [
     desc: 'Project Management' 
   },
   {
-    imgSrc: '/Oracle.svg',
+    imgSrc: '/oracle.svg',
     label: 'Oracle',
     desc: 'Database Management'
   },
