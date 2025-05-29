@@ -1,4 +1,4 @@
-import image from "/public/PIC2.jpg";
+
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import GLOBE from "vanta/dist/vanta.globe.min";
