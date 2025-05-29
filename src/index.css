@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Poppins';
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply text-zinc-50 bg-[#dbe9ee]
+}
+
+
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track{
+    background: #181f2a;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to bottom, #181f2a, #ffc248);
+    @apply rounded-xl
+}
+
+.label {
+    @apply block dark:text-zinc-200 text-[#001d3d] text-sm font-medium mb-2
+}
+
+.text-field {
+    @apply block outline-none w-full px-3 py-3 text-sm dark:bg-zinc-600/80 bg-[#001d3d]/30 rounded-lg ring-1 ring-inset ring-transparent transition-shadow dark:hover:ring-zinc-50/50 hover:ring-[#001d3d]/50 dark:focus:ring-[#ffc248]/50 focus:ring-[#001d3d]/50 focus:ring-2
+}
+
+.text-field::placeholder {
+    @apply dark:text-zinc-400 text-[#ffffff]
+}
+
+
+.material-symbols-rounded {
+    @apply w-[1em] h-[1em] overflow-hidden;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+
+
+
+/*CARD*/
+.headline-2 {
+    @apply max-w-max;
+    -webkit-background-clip: text;
+}
+
+.headline-2 {
+    @apply text-3xl lg:text-4xl lg:leading-tight font-semibold 
+}
+
+.title-1 {
+    @apply text-[18px] font-normal
+}
+
+/*BUTTONS*/
+.btn {
+    @apply max-w-max h-9 flex items-center gap-2 px-4 rounded-md font-medium text-sm ring-1 ring-zinc-50/5 ring-inset transition-[bacground-color] text-[#334561]
+}
+
+
+
+
+.btn-primary {
+    @apply h-11 dark:bg-[#e2a837] bg-[#001d3d] dark:text-[#001d3d] text-[#ffffff] dark:hover:bg-[#ffc248] dark:active:bg-[#e2a837] hover:bg-[#293e56] active:bg-[#001d3d]
+}
+
+.btn .material-symbols-rounded {
+    @apply text-[18px] 
+}
+
+.btn:has( .material-symbols-rounded) {
+    @apply pr-3
+}
+
+.btn-secondary {
+    @apply
+     dark:bg-[#e2a837] bg-[#001d3d] dark:text-[#181f2a] text-[#ffffff] dark:hover:bg-[#ffc248] hover:bg-[#293e56] active:bg-[#001d3d] 
+}
+
+.btn-outline {
+    @apply h-11 bg-zinc-800 hover:bg-[#8ca299] active:bg-zinc-800 
+}
+
+.menu-btn {
+    @apply w-10 h-10 grid place-items-center bg-zinc-50/10 rounded-xl ring-inset ring-1 ring-zinc-50/[0.02] backdrop-blur-2xl hover:bg-zinc-50/15 transition-[transform,background-color] active:scale-95
+}
+
+/*NAVBAR*/
+
+.navbar {
+    @apply absolute top-full mt-2 right-0 min-w-40 p-2 dark:bg-zinc-500/10 bg-[#001d3d]/30 rounded-2xl ring-inset ring-1 ring-zinc-50/5 scale-90 isolate blur-sm opacity-0 invisible transition-[opacity,transform,filter] md:static md:flex md:items-center md:mt-0 md:opacity-100 md:blur-0 md:visible md:scale-100 backdrop-blur-md
+}
+
+.navbar.active {
+    @apply opacity-100 scale-100 blur-0 visible 
+}
+
+.nav-link {
+    @apply grid items-center h-9 px-4 text-sm font-medium tracking-wide text-[#001d3d] dark:text-[#ffffff] dark:hover:text-[#e2a837] hover:text-zinc-100 transition-colors 
+}
+
+.nav-link.active {
+    @apply dark:text-[#f5bb06] text-[#ffffff] duration-500 font-bold hover:text-zinc-300 dark:hover:text-[#e7c786]
+}
+
+.navbar .active-box {
+    @apply absolute  dark:bg-[#181f2a] bg-[#001d3d]  rounded-lg -z-10 transition-[top,left] duration-500 
+}
+
+
+
+/* Replace for @utility container */
+.container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+
+
+
+
+
+
+
+
