@@ -1,6 +1,6 @@
 {
   "name": "pmob",
-
+  "homepage": "https://pmob-portfolio.vercel.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.13",
