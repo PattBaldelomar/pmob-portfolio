@@ -2,14 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import your GIF files
-import demoGif6 from "/public/KNVDemo.gif";
-import demoGif8 from "/public/UVEDemo.gif"; 
-import demoGif5 from "/public/ENOKDemo.gif";  
-import demoGif3 from "/public/CBCDemo.gif";  
-import demoGif4 from "/public/CBCVIPDemo.gif";  
-import demoGif2 from "/public/BMCDemo.gif"; 
-import demoGif1 from "/public/ARBASADemo.gif";
-import demoGif7 from "/public/R2HDemo.gif";  
+import demoGif6 from "/KNVDemo.gif";
+import demoGif8 from "/UVEDemo.gif"; 
+import demoGif5 from "/ENOKDemo.gif";  
+import demoGif3 from "/CBCDemo.gif";  
+import demoGif4 from "/CBCVIPDemo.gif";  
+import demoGif2 from "/BMCDemo.gif"; 
+import demoGif1 from "/ARBASADemo.gif";
+import demoGif7 from "/R2HDemo.gif";  
 
 const projectsData = [
   {

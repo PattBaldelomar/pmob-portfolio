@@ -3,112 +3,112 @@ import SkillCard from "./SkillCard";
 
 const skillItem = [
   {
-    imgSrc: '/public/figma.svg',
+    imgSrc: '/pmob-portfolio/figma.svg',
     label: 'Figma',
     desc: 'Design tool'
   },
   {
-    imgSrc: '/public/css3.svg',
+    imgSrc: '/pmob-portfolio/css3.svg',
     label: 'CSS',
     desc: 'User Interface'
   },
   {
-    imgSrc: '/public/javascript.svg',
+    imgSrc: '/pmob-portfolio/javascript.svg',
     label: 'JavaScript',
     desc: 'Interaction'
   },
   {
-    imgSrc: '/public/nodejs.svg',
+    imgSrc: '/pmob-portfolio/nodejs.svg',
     label: 'NodeJS',
     desc: 'Web Server'
   },
   {
-    imgSrc: '/public/mysql.svg',
+    imgSrc: '/pmob-portfolio/mysql.svg',
     label: 'MySQL',
     desc: 'Database'
   },
   {
-    imgSrc: '/public/roboflow.svg',
+    imgSrc: '/pmob-portfolio/roboflow.svg',
     label: 'Roboflow',
     desc: 'Image Processing'
   },
   {
-    imgSrc: '/public/react.svg',
+    imgSrc: '/pmob-portfolio/react.svg',
     label: 'React',
     desc: 'Framework'
   },
   {
-    imgSrc: '/public/tailwindcss.svg',
+    imgSrc: '/pmob-portfolio/tailwindcss.svg',
     label: 'TailwindCSS',
     desc: 'User Interface'
   },
   {
-    imgSrc: '/public/php.svg',
+    imgSrc: '/pmob-portfolio/php.svg',
     label: 'PHP',
     desc: 'Server-side'
   },
   {
-    imgSrc: '/public/python.svg',
+    imgSrc: '/pmob-portfolio/python.svg',
     label: 'Python',
     desc: 'Scripting Language' 
   },
     {
-    imgSrc: '/public/pytorch.svg',
+    imgSrc: '/pmob-portfolio/pytorch.svg',
     label: 'Pytorch',
     desc: 'Machine Learning' 
   },
   {
-    imgSrc: '/public/yolo.svg',
+    imgSrc: '/pmob-portfolio/yolo.svg',
     label: 'YOLO v8',
     desc: 'Object Detection' 
   },
   {
-    imgSrc: '/public/unity.svg',
+    imgSrc: '/pmob-portfolio/unity.svg',
     label: 'Unity',
     desc: 'Game Development' 
   },
   {
-    imgSrc: '/public/googlecolab.svg',
+    imgSrc: '/pmob-portfolio/googlecolab.svg',
     label: 'Google Colab',
     desc: 'Cloud Computing' 
   },
   {
-    imgSrc: '/public/html.svg',
+    imgSrc: '/pmob-portfolio/html.svg',
     label: 'HTML',
     desc: 'Structure' 
   },
   {
-    imgSrc: '/public/bootstrap.svg',
+    imgSrc: '/pmob-portfolio/bootstrap.svg',
     label: 'Bootstrap',
     desc: 'CSS Framework' 
   },
   {
-    imgSrc: '/public/wordpress.svg',
+    imgSrc: '/pmob-portfolio/wordpress.svg',
     label: 'Wordpress',
     desc: 'Content Management System' 
   },
   {
-    imgSrc: '/public/github.svg',
+    imgSrc: '/pmob-portfolio/github.svg',
     label: 'Github',
     desc: 'Version Control' 
   },
   {
-    imgSrc: '/public/AzureDevops.svg',
+    imgSrc: '/pmob-portfolio/AzureDevops.svg',
     label: 'Azure Devops',
     desc: 'Project Management' 
   },
   {
-    imgSrc: '/public/Oracle.svg',
+    imgSrc: '/pmob-portfolio/oracle.svg',
     label: 'Oracle',
     desc: 'Database Management'
   },
   {
-    imgSrc: '/public/SAP.svg',
+    imgSrc: '/pmob-portfolio/SAP.svg',
     label: 'SAP',
     desc: 'Enterprise Resource Planning'
   },
   {
-    imgSrc: '/public/shopify.svg',
+    imgSrc: '/pmob-portfolio/shopify.svg',
     label: 'Shopify',
     desc: 'E-commerce Platform'
   },
