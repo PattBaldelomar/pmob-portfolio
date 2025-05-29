@@ -67,7 +67,7 @@ function App() {
       </div>
 
       <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
-        <Hero />
+        {/* <Hero /> */}
       </main>
 
       <main className="flex flex-col px-4 py-32 md:px-8 lg:px-16">
