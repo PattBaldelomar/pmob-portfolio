@@ -92,11 +92,11 @@ const Hero = () => {
     >
       {/* Left: Text Content */}
       <motion.div
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex-1 flex flex-col items-center text-center md:items-start md:text-left gap-6 z-10 px-6 py-16 ml-0 md:ml-52 mt-16"
-      >
+  initial={{ x: -50, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="flex-1 flex flex-col items-center text-center md:items-start md:text-left gap-4 z-10 px-12 py-1 mt-20 md:px-6 md:py-16 md:ml-52 md:mt-16"
+>
         <span className="text-[#001d3d] dark:text-[#f5bb06] font-medium text-sm flex items-center gap-2">
           <span className="relative w-2 h-2 rounded-full bg-[#4ad66d] ">
             <span className="absolute inset-0 rounded-full bg-[#6ede8a] animate-ping"></span>
@@ -126,56 +126,60 @@ const Hero = () => {
           </Button>
         </div>
       </motion.div>
-      {/* ...existing code... */}
+
+      {/* Right: Profile Image */}
+      {/* ...your right content here... */}
+
+      {/* Responsive bottom gap for mobile/tablet */}
       <style>
-        {`
-          @media (max-width: 1024px) {
-            #home {
-              padding-bottom: 2rem !important;
-              margin-bottom: 2rem !important;
-            }
-          }
-          @media (max-width: 900px) and (min-width: 641px) {
-            #home .z-10 {
-              align-items: flex-start !important;
-              text-align: left !important;
-              margin-left: 2rem !important;
-              margin-right: 2rem !important;
-            }
-          }
-          @media (max-width: 768px) {
-            #home {
-              padding-bottom: 2rem !important;
-              margin-bottom: 2rem !important;
-            }
-            #home .z-10 {
-              margin-bottom: 2rem !important;
-            }
-          }
-          @media (max-width: 640px) {
-            #home {
-              padding-bottom: 2rem !important;
-              margin-bottom: -20rem !important;
-            }
-            #home .z-10 {
-              margin-bottom: 1.5rem !important;
-              align-items: center !important;
-              text-align: center !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-            }
-          }
-          @media (max-width: 400px) and (max-height: 700px) {
-            #home {
-              padding-bottom: 0.5rem !important;
-              margin-bottom: -5rem !important;
-            }
-            #home .z-10 {
-              margin-bottom: 0.5rem !important;
-            }
-          }
-        `}
-      </style>
+  {`
+   
+
+    @media (max-width: 1180px) and (min-width: 641px) {
+      #home .z-10 {
+        align-items: flex-start !important;
+        text-align: left !important;
+        margin-left: 6rem !important;
+        margin-right: 1rem !important;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      #home {
+        padding-bottom: 2rem !important;
+        margin-bottom: 2rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #home {
+        padding-bottom: 2rem !important;
+        margin-bottom: 2rem !important;
+      }
+      #home .z-10 {
+        margin-bottom: 2rem !important;
+      }
+    }
+    @media (max-width: 640px) {
+      #home {
+        padding-bottom: 2rem !important;
+        margin-bottom: -20rem !important;
+      }
+      #home .z-10 {
+        margin-bottom: 1.5rem !important;
+      }
+    }
+    @media (max-width: 400px) and (max-height: 700px) {
+      #home {
+        padding-bottom: 0.5rem !important;
+        margin-bottom: -5rem !important;
+      }
+      #home .z-10 {
+        margin-bottom: 0.5rem !important;
+      }
+    }
+  `}
+</style>
     </section>
   );
 };
