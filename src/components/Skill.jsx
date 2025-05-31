@@ -112,6 +112,11 @@ const skillItem = [
     label: 'Shopify',
     desc: 'E-commerce Platform'
   },
+  {
+    imgSrc: '/godaddy.svg',
+    label: 'GoDaddy',
+    desc: 'Web Hosting'
+  },
 ];
 
 const Skill = () => {
