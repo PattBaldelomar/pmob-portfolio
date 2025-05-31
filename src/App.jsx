@@ -18,35 +18,27 @@ function App() {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
-//   useEffect(() => {
-//   function resizeAndDraw() {
-//     if (canvasRef.current) {
-//       const dpr = window.devicePixelRatio || 1;
-//       canvasRef.current.width = window.innerWidth * dpr;
-//       canvasRef.current.height = window.innerHeight * dpr;
-//       canvasRef.current.style.width = window.innerWidth + "px";
-//       canvasRef.current.style.height = window.innerHeight + "px";
-//       // If ThpaceGL supports passing dpr, do so; otherwise, it will use the canvas size
-//       ThpaceGL.create(canvasRef.current, {
-//         colors: ["#181f2a", "#181f2a", "#e2a837"],
-//         triangleSize:500, // or any size you want
-//       });
-//     }
-//   }
-
-//   resizeAndDraw();
-//   window.addEventListener("resize", resizeAndDraw);
-
-//   return () => {
-//     window.removeEventListener("resize", resizeAndDraw);
-//     if (canvasRef.current && canvasRef.current.parentNode) {
-//       canvasRef.current.parentNode.removeChild(canvasRef.current);
-//     }
-//   };
-// }, []);
+  // Prevent horizontal scroll on all screen sizes (mobile & tablet)
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+    document.documentElement.style.overflowX = "hidden";
+    document.body.style.width = "100vw";
+    document.documentElement.style.width = "100vw";
+    // Prevent pinch-zoom horizontal scroll on mobile/tablet
+    document.body.style.maxWidth = "100vw";
+    document.documentElement.style.maxWidth = "100vw";
+    return () => {
+      document.body.style.overflowX = "";
+      document.documentElement.style.overflowX = "";
+      document.body.style.width = "";
+      document.documentElement.style.width = "";
+      document.body.style.maxWidth = "";
+      document.documentElement.style.maxWidth = "";
+    };
+  }, []);
 
   return (
-    <div className={`${darkMode ? "dark" : ""}`}>
+    <div className={`${darkMode ? "dark" : ""} min-h-screen w-screen overflow-x-hidden`}>
       <Header />
       <button
         onClick={() => setDarkMode(!darkMode)}
@@ -55,15 +47,14 @@ function App() {
         {darkMode ? "☀️" : "🌙"}
       </button>
       {/* ThpaceGL canvas background */}
-     <canvas
+      <canvas
         ref={canvasRef}
         id="make-me-cool"
         className="fixed inset-0 -z-20 w-full h-full"
       />
 
-    
-     <div className="fixed -z-10 min-h-screen w-full">
-        <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e2a837_2px,transparent_1px)] [background-size:96px_96px] dark:bg-[#181f2a] dark:bg-[radial-gradient(#e2a837_1px,transparent_.9px)]"></div>
+      <div className="fixed inset-0 -z-10 w-full h-full pointer-events-none">
+        <div className="w-full h-full min-h-full bg-[#dbe9ee] bg-[radial-gradient(#e2a837_2px,transparent_1px)] [background-size:96px_96px] dark:bg-[#181f2a] dark:bg-[radial-gradient(#dbe9ee_1px,transparent_.9px)]"></div>
       </div>
 
       <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">

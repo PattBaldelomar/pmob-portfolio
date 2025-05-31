@@ -52,7 +52,7 @@ const skillItem = [
     label: 'Python',
     desc: 'Scripting Language' 
   },
-    {
+  {
     imgSrc: '/pytorch.svg',
     label: 'Pytorch',
     desc: 'Machine Learning' 
@@ -124,7 +124,25 @@ const Skill = () => {
 
   // Show more/less logic
   const [showAll, setShowAll] = useState(false);
-  const VISIBLE_COUNT = 15;
+  const [visibleCount, setVisibleCount] = useState(9);
+  const [isSmall, setIsSmall] = useState(window.innerWidth <= 640);
+
+  // Responsive: Show only 6 skills on smallest screens
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmall(window.innerWidth <= 640);
+      if (window.innerWidth <= 640) {
+        setVisibleCount(6);
+      } else if (window.innerWidth <= 1024) {
+        setVisibleCount(10);
+      } else {
+        setVisibleCount(15);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     let interval;
@@ -176,15 +194,15 @@ const Skill = () => {
   }, []);
 
   // Determine which skills to show
-  const skillsToShow = showAll ? skillItem : skillItem.slice(0, VISIBLE_COUNT);
+  const skillsToShow = showAll ? skillItem : skillItem.slice(0, visibleCount);
 
   return (
-    <section className="section">
+    <section className="section" style={{
+        marginTop: isSmall ? "5rem" : "-2rem",
+      }}>
       <div id="skill" className="container scroll-mt-20">
          <h2 className="text-center text-3xl lg:text-4xl lg:leading-tight font-bold dark:text-[#ffc248] text-[#001d3d] pt-3 mb-12">
-
           <span>
-            {/* Always show "Tech" in main color, "Stack" in faded color if present */}
             <span>
               {typed.slice(0, 4)}
             </span>
@@ -206,28 +224,56 @@ const Skill = () => {
         </p>
 
         <div className="grid gap-3 grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))]">
-          {skillsToShow.map(({ imgSrc, label, desc }, key) => (
-            <SkillCard key={key} imgSrc={imgSrc} label={label} desc={desc} />
-          ))}
+          {skillsToShow.map(({ imgSrc, label, desc }, key) =>
+            isSmall ? (
+              <div
+                key={key}
+                className="flex flex-col items-center ring-2 ring-inset justify-center dark:ring-zinc-50/10 ring-[#001d3d]/10 rounded-2xl p-3 dark:hover:bg-[#ffc248]/10 hover:bg-[#001d3d]/20  cursor-pointer"
+              >
+                <img src={imgSrc} alt={label} className="w-12 h-12 mb-2" />
+                <span className="font-semibold text-[#001d3d] dark:text-[#ffc248]">{label}</span>
+              </div>
+            ) : (
+              <SkillCard key={key} imgSrc={imgSrc} label={label} desc={desc} />
+            )
+          )}
         </div>
 
-        {skillItem.length > VISIBLE_COUNT && (
-  <div className="flex justify-center mt-6">
-    <button
-      className="px-6 py-2 rounded dark:bg-[#ffc248] bg-[#001d3d] dark:text-[#181f2a] text-[#ffffff] font-semilight dark:hover:bg-[#e2a837] hover:bg-[#293e56] transition flex items-center gap-2"
-      onClick={() => setShowAll((prev) => !prev)}
-    >
-      {showAll ? "See Less" : "See More"}
-      <span className={`transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}>
-        {/* Arrow Down SVG */}
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" className="stroke-[#fffbe9] dark:stroke-[#181f2a]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </span>
-    </button>
-  </div>
-)}
+        {skillItem.length > visibleCount && (
+          <div className="flex justify-center mt-6">
+            <button
+              className="px-6 py-2 rounded dark:bg-[#ffc248] bg-[#001d3d] dark:text-[#181f2a] text-[#ffffff] font-semilight dark:hover:bg-[#e2a837] hover:bg-[#293e56] transition flex items-center gap-2"
+              onClick={() => setShowAll((prev) => !prev)}
+            >
+              {showAll ? "See Less" : "See More"}
+              <span className={`transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}>
+                {/* Arrow Down SVG */}
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" className="stroke-[#fffbe9] dark:stroke-[#181f2a]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        )}
       </div>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            #skill {
+              margin-top: 0rem !important;
+            }
+            .section {
+              margin-top: -5rem !important;
+              margin-bottom: 3rem !important;
+            }
+          }
+          @media (max-width: 640px) {
+            #skill .grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+          }
+        `}
+      </style>
     </section>
   );
 };

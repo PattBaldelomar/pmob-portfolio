@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import GLOBE from "vanta/dist/vanta.globe.min";
@@ -96,8 +95,7 @@ const Hero = () => {
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6 z-10
-    px-6 py-16 ml-9 md:ml-52"
+        className="flex-1 flex flex-col items-center text-center md:items-start md:text-left gap-6 z-10 px-6 py-16 ml-0 md:ml-52 mt-16"
       >
         <span className="text-[#001d3d] dark:text-[#f5bb06] font-medium text-sm flex items-center gap-2">
           <span className="relative w-2 h-2 rounded-full bg-[#4ad66d] ">
@@ -108,10 +106,10 @@ const Hero = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-[#e2a837] dark:text-white">
           Hi, I'm <span className=" text-[#001d3d] dark:text-[#e2a837]">Patt Baldelomar</span>
         </h1>
-        <h2 className="text-[#e2a837] dark:text-zinc-300 text-lg md:text-xl font-semibold">
+        <h2 className="dark:text-[#e2a837] text-[#001d3d] text-lg md:text-xl font-semibold">
           Full Stack Developer
         </h2>
-        <p className="text-[#e2a837] dark:text-zinc-400 max-w-md font-medium">
+        <p className="text-[#001d3d] dark:text-[#e2a837] max-w-md font-medium">
           I build modern, responsive websites and web applications with a focus on clean design and great user experience.
         </p>
         <div className="flex gap-4 pt-4">
@@ -131,6 +129,36 @@ const Hero = () => {
 
       {/* Right: Profile Image */}
       {/* ...your right content here... */}
+
+      {/* Responsive bottom gap for mobile/tablet */}
+      <style>
+        {`
+          @media (max-width: 1024px) {
+            #home {
+              padding-bottom: 2rem !important;
+              margin-bottom: 2rem !important;
+            }
+          }
+          @media (max-width: 768px) {
+            #home {
+              padding-bottom: 2rem !important;
+              margin-bottom: 2rem !important;
+            }
+            #home .z-10 {
+              margin-bottom: 2rem !important;
+            }
+          }
+          @media (max-width: 640px) {
+            #home {
+              padding-bottom: 2rem !important;
+              margin-bottom: -18rem !important;
+            }
+            #home .z-10 {
+              margin-bottom: 1.5rem !important;
+            }
+          }
+        `}
+      </style>
     </section>
   );
 };

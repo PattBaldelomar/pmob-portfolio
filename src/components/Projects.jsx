@@ -91,24 +91,59 @@ const ScrollReveal = ({children}) => (
 
 const ProjectCard = ({project}) => {
   const [showModal, setShowModal] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+
+  // Detect if mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="flex flex-col items-center gap-8 md:flex-row md:gap-14 bg-zinc-500/10 rounded-2xl ring-inset ring-1 ring-zinc-50/5 p-6 w-full">
+    <div
+      className={`flex flex-col items-center gap-3 sm:gap-6 md:flex-row md:gap-10 bg-zinc-500/10 rounded-2xl ring-inset ring-1 ring-zinc-50/5 
+        ${isMobile ? "p-2" : "p-3 sm:p-4 md:p-6"} w-full max-w-full`}
+    >
       <img
         src={project.image}
         alt={project.title}
-        className="w-full cursor-pointer rounded-lg transition-all duration-300 hover:scale-105 md:w-[300px]"
+        className={`rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer
+          ${isMobile ? "w-28" : "w-40 sm:w-56 md:w-[300px]"}`}
         onClick={() => setShowModal(true)}
       />
 
-      <div className="flex flex-col gap-5 ">
-        <div className="flex flex-col gap-3 ">
-          <div className="text-xl font-semibold ">{project.title}</div>
-          <p className="dark:text-gray-400 text-[#001d3d]/50">{project.description}</p>
+      <div className={`flex flex-col gap-2 sm:gap-4 w-full ${isMobile ? "items-center text-center" : ""}`}>
+        <div className={`flex flex-col gap-1 sm:gap-3 w-full ${isMobile ? "items-center text-center" : ""}`}>
+          <div className={`text-base sm:text-lg md:text-xl font-semibold flex items-center ${isMobile ? "justify-center" : ""}`}>
+            {project.title}
+            {isMobile && (
+              <button
+                className="ml-2 p-1 rounded-full bg-[#e2a837]/20 hover:bg-[#e2a837]/40 transition"
+                onClick={() => setShowInfo((prev) => !prev)}
+                aria-label="Show project info"
+                type="button"
+              >
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="#e2a837" strokeWidth="2" />
+                  <path d="M12 8v1m0 4v3" stroke="#e2a837" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            )}
+          </div>
+          {/* Show description only on desktop/tablet, or if info button is clicked on mobile */}
+          {(!isMobile || showInfo) && (
+            <p className="dark:text-gray-400 text-[#001d3d]/50 text-xs sm:text-sm mt-1">{project.description}</p>
+          )}
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className={`flex flex-wrap gap-1 sm:gap-2 w-full ${isMobile ? "justify-center" : ""}`}>
           {project.technologies.map((tech, index) => (
-            <span key={index} className="text-[12px]  dark:text-[#ffffff] text-[#001d3d] rounded-md dark:bg-[#111b2c] dark:ring-0 ring-1 ring-[#001d3d] p-2 ">
+            <span
+              key={index}
+              className={`rounded-md dark:bg-[#111b2c] dark:ring-0 ring-1 ring-[#001d3d] dark:text-[#ffffff] text-[#001d3d] 
+                ${isMobile ? "text-[10px] p-1" : "text-[11px] sm:text-[12px] p-1 sm:p-2"}`}
+            >
               {tech}
             </span>
           ))}
@@ -203,8 +238,13 @@ const Projects = () => {
       ? filteredProjects.slice(0, 4)
       : filteredProjects;
 
+  // Dynamic margin bottom based on number of cards shown
+  let sectionMargin = "mb-20";
+  if (projectsToShow.length <= 2) sectionMargin = "mb-8";
+  else if (projectsToShow.length <= 4) sectionMargin = "mb-12";
+
   return (
-    <section className="section">
+    <section className={`section ${sectionMargin}`}>
       <div id="projects" className="container scroll-mt-20">
         <h2 className="text-center text-3xl lg:text-4xl lg:leading-tight font-bold dark:text-[#ffc248] text-[#001d3d] pt-3 mb-12">
           <span>
@@ -260,19 +300,19 @@ const Projects = () => {
         {/* Show More / Show Less Button */}
         {filter === "All" && filteredProjects.length > 4 && (
           <div className="flex justify-center mt-6">
-    <button
-      className="px-6 py-2 rounded dark:bg-[#ffc248] bg-[#001d3d] dark:text-[#181f2a] text-[#ffffff] font-semilight dark:hover:bg-[#e2a837] hover:bg-[#293e56] transition flex items-center gap-2"
-      onClick={() => setShowAll((prev) => !prev)}
-    >
-      {showAll ? "See Less" : "See More"}
-      <span className={`transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}>
-        {/* Arrow Down SVG */}
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" className="stroke-[#fffbe9] dark:stroke-[#181f2a]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </span>
-    </button>
-  </div>
+            <button
+              className="px-6 py-2 rounded dark:bg-[#ffc248] bg-[#001d3d] dark:text-[#181f2a] text-[#ffffff] font-semilight dark:hover:bg-[#e2a837] hover:bg-[#293e56] transition flex items-center gap-2"
+              onClick={() => setShowAll((prev) => !prev)}
+            >
+              {showAll ? "See Less" : "See More"}
+              <span className={`transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}>
+                {/* Arrow Down SVG */}
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" className="stroke-[#fffbe9] dark:stroke-[#181f2a]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
         )}
       </div>
     </section>
