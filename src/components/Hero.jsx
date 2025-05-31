@@ -126,17 +126,21 @@ const Hero = () => {
           </Button>
         </div>
       </motion.div>
-
-      {/* Right: Profile Image */}
-      {/* ...your right content here... */}
-
-      {/* Responsive bottom gap for mobile/tablet */}
+      {/* ...existing code... */}
       <style>
         {`
           @media (max-width: 1024px) {
             #home {
               padding-bottom: 2rem !important;
               margin-bottom: 2rem !important;
+            }
+          }
+          @media (max-width: 900px) and (min-width: 641px) {
+            #home .z-10 {
+              align-items: flex-start !important;
+              text-align: left !important;
+              margin-left: 2rem !important;
+              margin-right: 2rem !important;
             }
           }
           @media (max-width: 768px) {
@@ -151,10 +155,23 @@ const Hero = () => {
           @media (max-width: 640px) {
             #home {
               padding-bottom: 2rem !important;
-              margin-bottom: -18rem !important;
+              margin-bottom: -20rem !important;
             }
             #home .z-10 {
               margin-bottom: 1.5rem !important;
+              align-items: center !important;
+              text-align: center !important;
+              margin-left: 0 !important;
+              margin-right: 0 !important;
+            }
+          }
+          @media (max-width: 400px) and (max-height: 700px) {
+            #home {
+              padding-bottom: 0.5rem !important;
+              margin-bottom: -5rem !important;
+            }
+            #home .z-10 {
+              margin-bottom: 0.5rem !important;
             }
           }
         `}
