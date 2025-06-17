@@ -106,12 +106,16 @@ const Hero = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-[#e2a837] dark:text-white">
           Hi, I'm <span className=" text-[#001d3d] dark:text-[#e2a837]">Patt Baldelomar</span>
         </h1>
-        <h2 className="dark:text-[#e2a837] text-[#001d3d] text-lg md:text-xl font-semibold">
+        <div className=" dark:bg-[#181f2a]/80 dark:px-6 dark:py-4 dark:rounded-lg dark:shadow-md max-w-md">
+        <h2 className="dark:text-[#e2a837] text-[#001d3d] text-lg md:text-xl font-bold">
           Full Stack Developer
         </h2>
-        <p className="text-[#001d3d] dark:text-[#e2a837] max-w-md font-medium">
-          I build modern, responsive websites and web applications with a focus on clean design and great user experience.
-        </p>
+        
+  <p className="text-[#001d3d] dark:text-[#e2a837] font-normal">
+    I build modern, responsive websites and web applications with a focus on clean design and great user experience.
+  </p>
+</div>
+
         <div className="flex gap-4 pt-4">
           <Button
             primary
